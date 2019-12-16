@@ -27,3 +27,17 @@ let products = [
 products.forEach(element => console.log(element.name))
 products.forEach(element => element, document.createElement(div))
 
+class Product {
+    constructor(name, category, description, price) {
+        this.name = name;
+        this.category = category;
+        this.description = description;
+        this.price = price;
+    }
+}
+
+class ProductCartItems {
+    constructor() {
+        this.items = [];
+    }
+}
