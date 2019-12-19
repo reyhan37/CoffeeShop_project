@@ -29,6 +29,7 @@ let i = 0;
 let t = 0;
 let subtotal = [];
 let subT = 0;
+let tax = 0;
 
 
 
@@ -139,25 +140,35 @@ function itemsInCart(t){
 function cartMath(){
     s = 0;
     subT = 0;
+    tax = 0;
+    let total = 0;
+    total = tax + subT;
 
     for (s; s <= cartList.length; s++){
 
         subT = subT + cartList[s].price;
-    
-        document.getElementById("subtotal").innerHTML = "$ " + subT;
+        tax = subT * 0.06;
+        total = tax + subT;
+        
+        
+        showTotals(tax, subT, total);
 
     }
-
     
-    // document.getElementById("tax").innerHTML = "$ " + subtotal;
-    // document.getElementById("total").innerHTML = "$ " + subtotal;
-
 }
 
 
 // ================ Show Checkout Fields ===================//
 
+function showTotals(tax, subT, total){
 
+    
+
+        document.getElementById("subtotal").innerHTML = "$ " + subT;
+        document.getElementById("tax").innerHTML = "$ " + tax;
+        document.getElementById("total").innerHTML = "$ " + total;
+
+}
 
 // addEventListener("change", function() {
 //     let option = document.querySelectorAll("option");
@@ -171,5 +182,3 @@ function cartMath(){
 //         document.getElementById("CashCheckOut").classList.add('CashCheckOutNone');
 //         document.getElementById("CreditCheckOut").classList.add('CreditCheckOut');
 //     }
-// });
-document.getElementById("subtotal").innerHTML = "$ " + subT;
