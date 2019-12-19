@@ -33,6 +33,7 @@ let tax = 0;
 
 
 
+
 // =================Products ==================//
 
 addProduct("Iced Coffee", 3, "drinks", "This is an iced coffee",'https://via.placeholder.com/150');
@@ -58,10 +59,6 @@ for (i; i<=productlist.length; i++){
 }
 // ================ CartItems Loop ===================//
 
-// for (t; t<=cartList.length; t++){
-
-//     createCartItem(t);
-// }
 
 
 // ========FUNCTIONS ============//
@@ -107,27 +104,37 @@ function addToCart(name, description, price){
     cartList.push(new Cart (name, description, Number(price)));
     createCartItem(t);
     cartMath();
-    console.log(cartList);
+  
 
 
 }
 
 function removeCartItem(t){
     cartList.splice(t, 1);
-    subtotal.splice(t, 1);
     document.getElementById(`itemid${t}`).remove();
-    cartMath();
-    // document.getElementsByTagName("itemid")[t].remove()
-    // itemRow[t].remove();
+    if (cartList.length === 0){
+        subT = 0;
+        tax = 0;
+        total = 0;
+
+        document.getElementById("subtotal").innerHTML = "$ " + subT;
+        document.getElementById("tax").innerHTML = "$ " + tax;
+        document.getElementById("total").innerHTML = "$ " + total;
+
+    } else {
     
-    // document.getElementById('CartItems').innerHTML += cartItem;
+    
+    cartMath();
+    
+}
 
 }
 
 function itemsInCart(t){
 
+    t = 0;
     for (t; t<=cartList.length; t++){
-
+    
     createCartItem(t);
 
 }
@@ -142,7 +149,7 @@ function cartMath(){
     subT = 0;
     tax = 0;
     let total = 0;
-    total = tax + subT;
+
 
     for (s; s <= cartList.length; s++){
 
@@ -150,10 +157,12 @@ function cartMath(){
         tax = subT * 0.06;
         total = tax + subT;
         
-        
-        showTotals(tax, subT, total);
+        showTotals(tax.toFixed(2), subT.toFixed(2), total.toFixed(2));
 
     }
+
+    
+    
     
 }
 
@@ -161,12 +170,44 @@ function cartMath(){
 // ================ Show Checkout Fields ===================//
 
 function showTotals(tax, subT, total){
-
     
-
         document.getElementById("subtotal").innerHTML = "$ " + subT;
         document.getElementById("tax").innerHTML = "$ " + tax;
         document.getElementById("total").innerHTML = "$ " + total;
+
+        // if (subT === "undefined"){
+
+        //     s = 0;
+        //     subT = 0;
+        //     tax = 0;
+        //     let total = 0;
+    
+        //     document.getElementById("subtotal").innerHTML = "$ " + subT;
+        //     document.getElementById("tax").innerHTML = "$ " + tax;
+        //     document.getElementById("total").innerHTML = "$ " + total;
+        // } else if (tax === "undefined"){
+    
+        //     s = 0;
+        //     subT = 0;
+        //     tax = 0;
+        //     let total = 0;
+    
+        //     document.getElementById("subtotal").innerHTML = "$ " + subT;
+        //     document.getElementById("tax").innerHTML = "$ " + tax;
+        //     document.getElementById("total").innerHTML = "$ " + total;
+    
+        // } else if (total === "undefined"){
+    
+        //     s = 0;
+        //     subT = 0;
+        //     tax = 0;
+        //     let total = 0;
+    
+        //     document.getElementById("subtotal").innerHTML = "$ " + subT;
+        //     document.getElementById("tax").innerHTML = "$ " + tax;
+        //     document.getElementById("total").innerHTML = "$ " + total;
+    
+        // }
 
 }
 
