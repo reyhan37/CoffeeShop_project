@@ -1,43 +1,175 @@
-// let cards = {
-
-//     productName = name,
-//     productDescription = decsription,
-//     productPrice = price,
-//     productURL = URL,
-//     productCategory = category,
-// }
-
-let products = [
-    {
-        name: "coffee",
-        price: "10.00",
-        description: "Lorem",
-        URL: "#",
-        category: "drink",
-    },
-    {
-        name: "Java",
-        price: "2.00",
-        description: "Lorem",
-        URL: "#",
-        category: "drink",
-    }
-]
-
-products.forEach(element => console.log(element.name))
-products.forEach(element => element, document.createElement(div))
+// ============= Product Class ===================///
 
 class Product {
-    constructor(name, category, description, price) {
+    constructor(name, price, category, description, url) {
         this.name = name;
+        this.price = price;
         this.category = category;
         this.description = description;
-        this.price = price;
+        this.url = url;
     }
+    
 }
 
-class ProductCartItems {
-    constructor() {
-        this.items = [];
+// ============= Cart Class ===================///
+
+class Cart {
+    constructor(name, description, price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    
     }
+    
 }
+
+let productlist = [];
+let cartList = [];
+let i = 0;
+let t = 0;
+let subtotal = [];
+let subT = 0;
+
+
+
+// =================Products ==================//
+
+addProduct("Iced Coffee", 3, "drinks", "This is an iced coffee",'https://via.placeholder.com/150');
+addProduct("Hot Coffee", 3, "drinks", "This is a hot black coffee",'https://via.placeholder.com/150');
+addProduct("Vanilla Latte", 5, "drinks", "This is a hot vanilla latte",'https://via.placeholder.com/150');
+addProduct("Carmel Latte", 5, "drinks", "This is a hot carmel latte",'https://via.placeholder.com/150');
+addProduct("Cold Brew", 4, "drinks", "This is a cold brew coffee",'https://via.placeholder.com/150');
+addProduct("Blueberry Muffin", 3, "snacks", "This is a blueberry muffin",'https://via.placeholder.com/150');
+addProduct("Poppy Muffin", 3, "snacks", "poppyseed muffin",'https://via.placeholder.com/150');
+addProduct("Espresso shot", 3, "espresso", "This is an espresso shot",'https://via.placeholder.com/150');
+addProduct("Chai Tea Latte", 4, "drinks", "This is a hot chai tea latte",'https://via.placeholder.com/150');
+addProduct("Iced Tea", 3, "drinks", "This is a cold iced tea",'https://via.placeholder.com/150');
+// addProduct("Green Tea", 4, "cold drinks", "This is a cold green tea",'https://via.placeholder.com/150');
+// addProduct("Crossiant", 3, "snacks", "This is a crossiant",'https://via.placeholder.com/150');
+
+
+
+// ================ Items Loop ===================//
+
+for (i; i<=productlist.length; i++){
+
+    createProductCard(i);
+}
+// ================ CartItems Loop ===================//
+
+// for (t; t<=cartList.length; t++){
+
+//     createCartItem(t);
+// }
+
+
+// ========FUNCTIONS ============//
+function addProduct(name, category, description, price, url){
+
+    productlist.push(new Product(name, category, description, price, url));
+}
+
+function createProductCard(i){
+    // console.log(i);
+    let productCard = 
+    `
+    <div class="card" >
+    <img src="${productlist[i].url}" height="120px" width="150px" class="card-img-top" alt="...">
+    <div class="card-body">
+    <h6 class="card-title">${productlist[i].name}</h6>
+    <p class="card-text">${productlist[i].description}</p>
+    <p class="card-text" align="center" style="font-weight: 800; color: green">$${productlist[i].price}</p>
+    <p style="font-size:small">Category:&nbsp;&nbsp;<span class="badge badge-dark">${productlist[i].category}</span></p>
+    <a href="#" onclick="addToCart('${productlist[i].name}','${productlist[i].description}','${productlist[i].price}')" class="btn-sm btn-primary" align="center" style="display: block">Add to Cart</a>
+    </div>`;
+    document.getElementById('productCards').innerHTML += productCard;
+    
+
+}
+
+function createCartItem(t){
+    let cartItem = 
+    `   <tr id="itemid${t}">
+            <th scope="row"><a href="#" onclick="removeCartItem(${t})"<i class="fa fa-minus-square"></i></a></th>
+            <td>${cartList[t].name}</td>
+            <td>${cartList[t].description}</td>
+            <td style="color: green">$${cartList[t].price}</td>
+        </tr>`;
+    document.getElementById('CartItems').innerHTML += cartItem;
+    
+
+}
+
+function addToCart(name, description, price){
+
+    let t = cartList.length;
+    cartList.push(new Cart (name, description, Number(price)));
+    createCartItem(t);
+    cartMath();
+    console.log(cartList);
+
+
+}
+
+function removeCartItem(t){
+    cartList.splice(t, 1);
+    subtotal.splice(t, 1);
+    document.getElementById(`itemid${t}`).remove();
+    cartMath();
+    // document.getElementsByTagName("itemid")[t].remove()
+    // itemRow[t].remove();
+    
+    // document.getElementById('CartItems').innerHTML += cartItem;
+
+}
+
+function itemsInCart(t){
+
+    for (t; t<=cartList.length; t++){
+
+    createCartItem(t);
+
+}
+
+}
+
+// ================ Cart Math===================//
+
+
+function cartMath(){
+    s = 0;
+    subT = 0;
+
+    for (s; s <= cartList.length; s++){
+
+        subT = subT + cartList[s].price;
+    
+        document.getElementById("subtotal").innerHTML = "$ " + subT;
+
+    }
+
+    
+    // document.getElementById("tax").innerHTML = "$ " + subtotal;
+    // document.getElementById("total").innerHTML = "$ " + subtotal;
+
+}
+
+
+// ================ Show Checkout Fields ===================//
+
+
+
+// addEventListener("change", function() {
+//     let option = document.querySelectorAll("option");
+//     if(option[0]] === "Cash")
+//     {
+//         document.getElementById("CashCheckOut").classList.add('CashCheckOut');
+//         document.getElementById("CreditCheckOut").classList.add('CreditCheckOutNone');
+//     }
+//     if(options[1]] === "Credit Card")
+//     {
+//         document.getElementById("CashCheckOut").classList.add('CashCheckOutNone');
+//         document.getElementById("CreditCheckOut").classList.add('CreditCheckOut');
+//     }
+// });
+document.getElementById("subtotal").innerHTML = "$ " + subT;
