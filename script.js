@@ -36,16 +36,16 @@ let tax = 0;
 
 // =================Products ==================//
 
-addProduct("Iced Coffee", 3, "drinks", "This is an iced coffee",'https://via.placeholder.com/150');
-addProduct("Hot Coffee", 3, "drinks", "This is a hot black coffee",'https://via.placeholder.com/150');
-addProduct("Vanilla Latte", 5, "drinks", "This is a hot vanilla latte",'https://via.placeholder.com/150');
-addProduct("Carmel Latte", 5, "drinks", "This is a hot carmel latte",'https://via.placeholder.com/150');
-addProduct("Cold Brew", 4, "drinks", "This is a cold brew coffee",'https://via.placeholder.com/150');
-addProduct("Blueberry Muffin", 3, "snacks", "This is a blueberry muffin",'https://via.placeholder.com/150');
-addProduct("Poppy Muffin", 3, "snacks", "poppyseed muffin",'https://via.placeholder.com/150');
-addProduct("Espresso shot", 3, "espresso", "This is an espresso shot",'https://via.placeholder.com/150');
-addProduct("Chai Tea Latte", 4, "drinks", "This is a hot chai tea latte",'https://via.placeholder.com/150');
-addProduct("Iced Tea", 3, "drinks", "This is a cold iced tea",'https://via.placeholder.com/150');
+addProduct("Iced Coffee", 3, "drinks", "This is an iced coffee",'images/IcedCoffee.png');
+addProduct("Hot Coffee", 3, "drinks", "This is a hot black coffee",'images/HotCoffee.png');
+addProduct("Vanilla Latte", 5, "drinks", "This is a hot vanilla latte",'images/VanillaLatte.png');
+addProduct("Carmel Latte", 5, "drinks", "This is a hot carmel latte",'images/CarmelLatte.png');
+addProduct("Cold Brew", 4, "drinks", "This is a cold brew coffee",'images/ColdBrew.png');
+addProduct("Blueberry Muffin", 3, "snacks", "This is a blueberry muffin",'images/BlueberryMuffin.png');
+addProduct("Poppy Muffin", 3, "snacks", "poppyseed muffin",'images/PoppyseedMuffin.png');
+addProduct("Espresso shot", 3, "espresso", "This is an espresso shot",'images/EspressoShot.png');
+addProduct("Chai Tea Latte", 4, "drinks", "This is a hot chai tea latte",'images/ChaiTea.png');
+addProduct("Iced Tea", 3, "drinks", "This is a cold iced tea",'images/IcedTea.png');
 // addProduct("Green Tea", 4, "cold drinks", "This is a cold green tea",'https://via.placeholder.com/150');
 // addProduct("Crossiant", 3, "snacks", "This is a crossiant",'https://via.placeholder.com/150');
 
@@ -72,7 +72,7 @@ function createProductCard(i){
     let productCard = 
     `
     <div class="card" >
-    <img src="${productlist[i].url}" height="120px" width="150px" class="card-img-top" alt="...">
+    <img src="${productlist[i].url}" height="150px" width="150px" class="card-img-top" alt="...">
     <div class="card-body">
     <h6 class="card-title">${productlist[i].name}</h6>
     <p class="card-text">${productlist[i].description}</p>
