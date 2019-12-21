@@ -170,6 +170,8 @@ function showTotals(tax, subT, total) {
 
 }
 
+// ====== Payment Method Options - Selecting a payment on the dropdown ====== //
+
 let paymentOption = document.getElementById("CheckOutOptions").value;
 document.getElementById("CheckOutOptions").addEventListener("change", paymentMethod());
 
@@ -178,13 +180,13 @@ function paymentMethod() {
 
     if (paymentOption === "Cash") {
         document.getElementById("CashCheckOut").className = "CashCheckOut";
-        document.getElementById("CardCheckOut").className = "CardCheckOutNone";
+        document.getElementById("CreditCheckOut").className = "CreditCheckOutNone";
     } else if (paymentOption === "Credit Card") {
         document.getElementById("CashCheckOut").className = "CashCheckOutNone";
-        document.getElementById("CardCheckOut").className = "CardCheckOut";
+        document.getElementById("CreditCheckOut").className = "CreditCheckOut";
     } else if (paymentOption === "----") {
         document.getElementById("CashCheckOut").className = "CashCheckOutNone";
-        document.getElementById("CardCheckOut").className = "CardCheckOutNone";
+        document.getElementById("CreditCheckOut").className = "CreditCheckOutNone";
     }
 }
 paymentMethod();
