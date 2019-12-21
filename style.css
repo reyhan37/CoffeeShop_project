@@ -10,14 +10,14 @@ header {
 }
 
 .cartItems{
-    padding-top: 115px;
+    padding-top: 60px;
 }
 .navbar {
-    min-height: 75px;
+    min-height: 55px;
 }
 
 .menubar {
-    min-height: 75px;
+    min-height: 55px;
     background-color: #fff;
     border-bottom: 1px;
     border-bottom-color: slategrey;
@@ -34,14 +34,7 @@ header {
 .headericon {
 
     margin-top: 10px;
-    margin-bottom: 10px;
-    justify-content: center;
-    
 }
-.logo {
-    justify-content: center;
-}
-
 .checkout {
     padding-top: 10px;
 }
@@ -56,12 +49,12 @@ header {
 
 }
 .CreditCheckOut {
-    padding-top: 15px;
+    padding-top: 10px;
     display: contents;
 
 }
 .CashCheckOutNone {
-    padding-top: 15px;
+    padding-top: 10px;
     display: none;
 
 }
@@ -77,28 +70,7 @@ header {
 
 }
 
-@media only screen and (min-width: 768px) {
-    .headericon {
+#CheckOutOptions {
+    padding: 10px;
+}
 
-        margin-top: 10px;
-        justify-content: end; 
-    }
-    .logo {
-
-        justify-content: start;
-    }
-    .menubar {
-        min-height: 55px;
-        background-color: #fff;
-        border-bottom: 1px;
-        border-bottom-color: slategrey;
-        border-bottom-style: solid;
-    
-    }
-    .navbar {
-        min-height: 55px;
-    }
-    .cartItems {
-        padding-top: 60px;
-    }
-  }

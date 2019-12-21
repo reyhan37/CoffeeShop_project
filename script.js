@@ -8,7 +8,7 @@ class Product {
         this.description = description;
         this.url = url;
     }
-    
+
 }
 
 // ============= Cart Class ===================///
@@ -18,9 +18,9 @@ class Cart {
         this.name = name;
         this.description = description;
         this.price = price;
-    
+
     }
-    
+
 }
 
 let productlist = [];
@@ -33,19 +33,18 @@ let tax = 0;
 
 
 
-
 // =================Products ==================//
 
-addProduct("Iced Coffee", 3, "drinks", "This is an iced coffee",'images/IcedCoffee.png');
-addProduct("Hot Coffee", 3, "drinks", "This is a hot black coffee",'images/HotCoffee.png');
-addProduct("Vanilla Latte", 5, "drinks", "This is a hot vanilla latte",'images/VanillaLatte.png');
-addProduct("Carmel Latte", 5, "drinks", "This is a hot carmel latte",'images/CarmelLatte.png');
-addProduct("Cold Brew", 4, "drinks", "This is a cold brew coffee",'images/ColdBrew.png');
-addProduct("Blueberry Muffin", 3, "snacks", "This is a blueberry muffin",'images/BlueberryMuffin.png');
-addProduct("Poppy Muffin", 3, "snacks", "poppyseed muffin",'images/PoppyseedMuffin.png');
-addProduct("Espresso shot", 3, "espresso", "This is an espresso shot",'images/EspressoShot.png');
-addProduct("Chai Tea Latte", 4, "drinks", "This is a hot chai tea latte",'images/ChaiTea.png');
-addProduct("Iced Tea", 3, "drinks", "This is a cold iced tea",'images/IcedTea.png');
+addProduct("Iced Coffee", 3, "drinks", "This is an iced coffee", 'https://via.placeholder.com/150');
+addProduct("Hot Coffee", 3, "drinks", "This is a hot black coffee", 'https://via.placeholder.com/150');
+addProduct("Vanilla Latte", 5, "drinks", "This is a hot vanilla latte", 'https://via.placeholder.com/150');
+addProduct("Carmel Latte", 5, "drinks", "This is a hot carmel latte", 'https://via.placeholder.com/150');
+addProduct("Cold Brew", 4, "drinks", "This is a cold brew coffee", 'https://via.placeholder.com/150');
+addProduct("Blueberry Muffin", 3, "snacks", "This is a blueberry muffin", 'https://via.placeholder.com/150');
+addProduct("Poppy Muffin", 3, "snacks", "poppyseed muffin", 'https://via.placeholder.com/150');
+addProduct("Espresso shot", 3, "espresso", "This is an espresso shot", 'https://via.placeholder.com/150');
+addProduct("Chai Tea Latte", 4, "drinks", "This is a hot chai tea latte", 'https://via.placeholder.com/150');
+addProduct("Iced Tea", 3, "drinks", "This is a cold iced tea", 'https://via.placeholder.com/150');
 // addProduct("Green Tea", 4, "cold drinks", "This is a cold green tea",'https://via.placeholder.com/150');
 // addProduct("Crossiant", 3, "snacks", "This is a crossiant",'https://via.placeholder.com/150');
 
@@ -53,26 +52,30 @@ addProduct("Iced Tea", 3, "drinks", "This is a cold iced tea",'images/IcedTea.pn
 
 // ================ Items Loop ===================//
 
-for (i; i<=productlist.length; i++){
+for (i; i <= productlist.length; i++) {
 
     createProductCard(i);
 }
 // ================ CartItems Loop ===================//
 
+// for (t; t<=cartList.length; t++){
+
+//     createCartItem(t);
+// }
 
 
 // ========FUNCTIONS ============//
-function addProduct(name, category, description, price, url){
+function addProduct(name, category, description, price, url) {
 
     productlist.push(new Product(name, category, description, price, url));
 }
 
-function createProductCard(i){
+function createProductCard(i) {
     // console.log(i);
-    let productCard = 
-    `
+    let productCard =
+        `
     <div class="card" >
-    <img src="${productlist[i].url}" height="150px" width="150px" class="card-img-top" alt="...">
+    <img src="${productlist[i].url}" height="120px" width="150px" class="card-img-top" alt="...">
     <div class="card-body">
     <h6 class="card-title">${productlist[i].name}</h6>
     <p class="card-text">${productlist[i].description}</p>
@@ -81,145 +84,109 @@ function createProductCard(i){
     <a href="#" onclick="addToCart('${productlist[i].name}','${productlist[i].description}','${productlist[i].price}')" class="btn-sm btn-primary" align="center" style="display: block">Add to Cart</a>
     </div>`;
     document.getElementById('productCards').innerHTML += productCard;
-    
+
 
 }
 
-function createCartItem(t){
-    let cartItem = 
-    `   <tr id="itemid${t}">
+function createCartItem(t) {
+    let cartItem =
+        `   <tr id="itemid${t}">
             <th scope="row"><a href="#" onclick="removeCartItem(${t})"<i class="fa fa-minus-square"></i></a></th>
             <td>${cartList[t].name}</td>
             <td>${cartList[t].description}</td>
             <td style="color: green">$${cartList[t].price}</td>
         </tr>`;
     document.getElementById('CartItems').innerHTML += cartItem;
-    
+
 
 }
 
-function addToCart(name, description, price){
+function addToCart(name, description, price) {
 
     let t = cartList.length;
-    cartList.push(new Cart (name, description, Number(price)));
+    cartList.push(new Cart(name, description, Number(price)));
     createCartItem(t);
     cartMath();
-  
+    console.log(cartList);
 
 
 }
 
-function removeCartItem(t){
+function removeCartItem(t) {
     cartList.splice(t, 1);
+    subtotal.splice(t, 1);
     document.getElementById(`itemid${t}`).remove();
-    if (cartList.length === 0){
-        subT = 0;
-        tax = 0;
-        total = 0;
-
-        document.getElementById("subtotal").innerHTML = "$ " + subT;
-        document.getElementById("tax").innerHTML = "$ " + tax;
-        document.getElementById("total").innerHTML = "$ " + total;
-
-    } else {
-    
-    
     cartMath();
-    
-}
+    // document.getElementsByTagName("itemid")[t].remove()
+    // itemRow[t].remove();
+
+    // document.getElementById('CartItems').innerHTML += cartItem;
 
 }
 
-function itemsInCart(t){
+function itemsInCart(t) {
 
-    t = 0;
-    for (t; t<=cartList.length; t++){
-    
-    createCartItem(t);
+    for (t; t <= cartList.length; t++) {
 
-}
+        createCartItem(t);
+
+    }
 
 }
 
 // ================ Cart Math===================//
 
 
-function cartMath(){
+function cartMath() {
     s = 0;
     subT = 0;
     tax = 0;
     let total = 0;
+    total = tax + subT;
 
-
-    for (s; s <= cartList.length; s++){
+    for (s; s <= cartList.length; s++) {
 
         subT = subT + cartList[s].price;
         tax = subT * 0.06;
         total = tax + subT;
-        
-        showTotals(tax.toFixed(2), subT.toFixed(2), total.toFixed(2));
+
+
+        showTotals(tax, subT, total);
 
     }
 
-    
-    
-    
 }
 
 
 // ================ Show Checkout Fields ===================//
 
-function showTotals(tax, subT, total){
-    
-        document.getElementById("subtotal").innerHTML = "$ " + subT;
-        document.getElementById("tax").innerHTML = "$ " + tax;
-        document.getElementById("total").innerHTML = "$ " + total;
+function showTotals(tax, subT, total) {
 
-        // if (subT === "undefined"){
 
-        //     s = 0;
-        //     subT = 0;
-        //     tax = 0;
-        //     let total = 0;
-    
-        //     document.getElementById("subtotal").innerHTML = "$ " + subT;
-        //     document.getElementById("tax").innerHTML = "$ " + tax;
-        //     document.getElementById("total").innerHTML = "$ " + total;
-        // } else if (tax === "undefined"){
-    
-        //     s = 0;
-        //     subT = 0;
-        //     tax = 0;
-        //     let total = 0;
-    
-        //     document.getElementById("subtotal").innerHTML = "$ " + subT;
-        //     document.getElementById("tax").innerHTML = "$ " + tax;
-        //     document.getElementById("total").innerHTML = "$ " + total;
-    
-        // } else if (total === "undefined"){
-    
-        //     s = 0;
-        //     subT = 0;
-        //     tax = 0;
-        //     let total = 0;
-    
-        //     document.getElementById("subtotal").innerHTML = "$ " + subT;
-        //     document.getElementById("tax").innerHTML = "$ " + tax;
-        //     document.getElementById("total").innerHTML = "$ " + total;
-    
-        // }
+
+    document.getElementById("subtotal").innerHTML = "$ " + subT;
+    document.getElementById("tax").innerHTML = "$ " + tax;
+    document.getElementById("total").innerHTML = "$ " + total;
 
 }
 
-// addEventListener("change", function() {
-//     let option = document.querySelectorAll("option");
-//     if(option[0]] === "Cash")
-//     {
-//         document.getElementById("CashCheckOut").classList.add('CashCheckOut');
-//         document.getElementById("CreditCheckOut").classList.add('CreditCheckOutNone');
-//     }
-//     if(options[1]] === "Credit Card")
-//     {
-//         document.getElementById("CashCheckOut").classList.add('CashCheckOutNone');
-//         document.getElementById("CreditCheckOut").classList.add('CreditCheckOut');
-//     }
+let paymentOption = document.getElementById("CheckOutOptions").value;
+document.getElementById("CheckOutOptions").addEventListener("change", paymentMethod());
+
+function paymentMethod() {
+    let paymentOption = document.getElementById("CheckOutOptions").value;
+
+    if (paymentOption === "Cash") {
+        document.getElementById("CashCheckOut").className = "CashCheckOut";
+        document.getElementById("CardCheckOut").className = "CardCheckOutNone";
+    } else if (paymentOption === "Credit Card") {
+        document.getElementById("CashCheckOut").className = "CashCheckOutNone";
+        document.getElementById("CardCheckOut").className = "CardCheckOut";
+    } else if (paymentOption === "----") {
+        document.getElementById("CashCheckOut").className = "CashCheckOutNone";
+        document.getElementById("CardCheckOut").className = "CardCheckOutNone";
+    }
+}
+paymentMethod();
+console.log();
+
