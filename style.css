@@ -1,0 +1,76 @@
+header {
+    display: block;
+    min-height: 100px;
+}
+
+.card {
+    margin: 10px;
+    width: 10rem;
+
+}
+
+.cartItems{
+    padding-top: 60px;
+}
+.navbar {
+    min-height: 55px;
+}
+
+.menubar {
+    min-height: 55px;
+    background-color: #fff;
+    border-bottom: 1px;
+    border-bottom-color: slategrey;
+    border-bottom-style: solid;
+
+}
+
+.cartcolumn {
+    padding-top: 20px;
+}
+.fa-minus-square {
+    color: red;
+}
+.headericon {
+
+    margin-top: 10px;
+}
+.checkout {
+    padding-top: 10px;
+}
+.checkoutbtn {
+    padding-top: 15px;
+    padding-right: 0px;
+}
+
+.CashCheckOut {
+    padding-top: 10px;
+    display: contents;
+
+}
+.CreditCheckOut {
+    padding-top: 10px;
+    display: contents;
+
+}
+.CashCheckOutNone {
+    padding-top: 10px;
+    display: none;
+
+}
+.CreditCheckOutNone {
+    padding-top: 10px;
+    display: none;
+
+}
+.changeDue {
+
+    padding-top: 10px;
+    display: none;
+
+}
+
+#CheckOutOptions {
+    padding: 10px;
+}
+

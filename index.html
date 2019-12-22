@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Coffee Shop</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+        <div class="container-fluid fixed-top menubar">
+                <div class="row">
+                        <div class="col-md-5 d-flex flex-row">
+                                <img src="/images/logo.png">
+                        </div>
+                        <div class="col-md-7 d-flex flex-row-reverse headericon"><a href="#ProductList"><i
+                                                class="fa fa-shopping-cart fa-2x"></i></a>
+
+                        </div>
+                </div>
+        </div>
+        <div class="container-fluid">
+                <div class="row cartItems">
+                        <div class="col-md-8">
+                                <div id="productCards" class="row justify-content-center">
+                                        <!-- <div class="card">
+                                        <img src="https://via.placeholder.com/150" height="120px" width="150px" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Product</h5>
+                                        <p class="card-text">Description of Product.</p>
+                                        <h6 class="card-title">$5</h6>
+                                        <a href="#" class="btn-sm btn-primary">Add to Cart</a>
+                                        </div>
+                                        </div>
+                                <div class="card">
+                                        <img src="https://via.placeholder.com/150" height="120px" width="150px" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Product</h5>
+                                        <p class="card-text">Description of Product.</p>
+                                        <h6 class="card-title">$5</h6>
+                                        <a href="#" class="btn-sm btn-primary">Add to Cart</a>
+                                        </div>
+                                        </div>
+                                <div class="card">
+                                        <img src="https://via.placeholder.com/150" height="120px" width="150px" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Product</h5>
+                                        <p class="card-text">Description of Product.</p>
+                                        <h6 class="card-title">$5</h6>
+                                        <a href="#" class="btn-sm btn-primary">Add to Cart</a>
+                                        </div>
+                                        </div>
+                                <div class="card">
+                                        <img src="https://via.placeholder.com/150" height="120px" width="150px" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Product</h5>
+                                        <p class="card-text">Description of Product.</p>
+                                        <h6 class="card-title">$5</h6>
+                                        <a href="#" class="btn-sm btn-primary">Add to Cart</a>
+                                        </div>
+                                        </div>
+                                        <div class="card">
+                                                <img src="https://via.placeholder.com/150" height="120px" width="150px" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                <h5 class="card-title">Product</h5>
+                                                <p class="card-text">Description of Product.</p>
+                                                <h6 class="card-title">$5</h6>
+                                                <a href="#" class="btn-sm btn-primary">Add to Cart</a>
+                                                </div>
+                                                </div>
+                                        <div class="card">
+                                                <img src="https://via.placeholder.com/150" height="120px" width="150px" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                <h5 class="card-title">Product</h5>
+                                                <p class="card-text">Description of Product.</p>
+                                                <h6 class="card-title">$5</h6>
+                                                <a href="#" class="btn-sm btn-primary">Add to Cart</a>
+                                                </div>
+                                                </div>
+                                        <div class="card">
+                                                <img src="https://via.placeholder.com/150" height="120px" width="150px" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                <h5 class="card-title">Product</h5>
+                                                <p class="card-text">Description of Product.</p>
+                                                <h6 class="card-title">$5</h6>
+                                                <a href="#" class="btn-sm btn-primary">Add to Cart</a>
+                                                </div>
+                                                </div>
+                                        <div class="card" >
+                                                <img src="https://via.placeholder.com/150" height="120px" width="150px" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                <h5 class="card-title">Product</h5>
+                                                <p class="card-text">Description of Product.</p>
+                                                <h6 class="card-title">$5</h6>
+                                                <a href="#" class="btn-sm btn-primary">Add to Cart</a>
+                                                </div>
+                                                </div>
+
+                                                <div class="card">
+                                                        <img src="https://via.placeholder.com/150" height="120px" width="150px" class="card-img-top" alt="...">
+                                                        <div class="card-body">
+                                                        <h5 class="card-title">Product</h5>
+                                                        <p class="card-text">Description of Product.</p>
+                                                        <h6 class="card-title">$5</h6>
+                                                        <a href="#" class="btn-sm btn-primary">Add to Cart</a>
+                                                        </div>
+                                                        </div>
+                                                <div class="card" >
+                                                        <img src="https://via.placeholder.com/150" height="120px" width="150px" class="card-img-top" alt="...">
+                                                        <div class="card-body">
+                                                        <h5 class="card-title">Product</h5>
+                                                        <p class="card-text">Description of Product.</p>
+                                                        <h6 class="card-title">$5</h6>
+                                                        <a href="#" class="btn-sm btn-primary">Add to Cart</a>
+                                                        </div>
+                                                        </div>-->
+                                </div>
+
+                        </div>
+                        <div class="col-md-4 cartcolumn">
+                                <h2 style>Cart</h2>
+                                <row>
+                                        <table class="table">
+                                                <thead>
+                                                        <tr>
+                                                                <th scope="col"></th>
+                                                                <th scope="col">Item</th>
+                                                                <th scope="col">Description</th>
+                                                                <th scope="col">Price</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody id="CartItems">
+
+                                                </tbody>
+                                        </table>
+                                </row>
+                                <hr>
+                                <div class="totalContainer"></div>
+                                <div class="row">
+                                        <div class="col-sm-4 d-flex flex-row-reverse">
+                                                <h6 style>Subtotal</h6>
+                                        </div>
+                                        <div class="col-sm-4 d-flex flex-row-reverse">
+                                                <h6 id="subtotal"></h6>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-sm-4 d-flex flex-row-reverse">
+                                                <h6 style>Tax</h6>
+                                        </div>
+                                        <div class="col-sm-4 d-flex flex-row-reverse">
+                                                <h6 id="tax"></h6>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-sm-4 d-flex flex-row-reverse">
+                                                <h6 style>Total</h6>
+                                        </div>
+                                        <div class="col-sm-4 d-flex flex-row-reverse">
+                                                <h6 id="total"></h6>
+                                        </div>
+                                </div>
+                                <hr>
+                                <div class="row checkout">
+                                        <div class="col-sm-4 d-flex flex-row-reverse">
+                                                <h6>Checkout Method</h6>
+                                        </div>
+                                        <div class="col-sm-4 d-flex flex-row-reverse">
+                                                <select class="checkout" id="CheckOutOptions"
+                                                        onchange="paymentMethod();">
+                                                        <option value="----">----</option>
+                                                        <option value="Cash">Cash</option>
+                                                        <option value="Credit Card">Credit Card</option>
+                                        </div>
+                                        </select>
+                                </div>
+                        </div>
+                        <div class="CheckOutNone" id="CashCheckOut">
+                                <div class="row">
+                                        <div class="col-sm-4 d-flex flex-row-reverse">
+                                                <h6 style>Amount Paid</h6>
+                                        </div>
+                                        <div class="col-sm-5
+                                                         d-flex flex-row-reverse"><input id="amountPaid"></input></div>
+                                </div>
+                                <div class="row changeDue">
+                                        <div class="col-sm-4 d-flex flex-row-reverse">
+                                                <h6 style>Change Due</h6>
+                                        </div>
+                                        <div class="col-sm-5 d-flex flex-row-reverse">
+                                                <h6 id="changeDue"></h6>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="CreditCheckOutNone" id="CreditCheckOut">
+
+                                <form id="ccPayment">
+                                        <input id="ccNum" pattern="[0-9]*" name="creditCardNumber" placeholder="Credit Card Number" required minlength="16" maxlength="16">
+                                
+                                        <input id="CVV" pattern="[0-9]*" name="cardVerificationValue" placeholder="CVV" required minlength="3" maxlength="3"><br>
+                                
+                                        <label for="MM">Exp Mo</label>
+                                        <select name="expMo" id="MM">
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                
+                                        <label for="YYYY">Exp Yr</label>
+                                        <select name="expYr" id="YYYY">
+                                            <option value="20">2020</option>
+                                            <option value="21">2021</option>
+                                            <option value="22">2022</option>
+                                            <option value="23">2023</option>
+                                            <option value="24">2024</option>
+                                            <option value="25">2025</option>
+                                            <option value="26">2026</option>
+                                            <option value="27">2027</option>
+                                            <option value="28">2028</option>
+                                            <option value="29">2029</option>
+                                            <option value="30">2030</option>
+                                            <option value="31">2031</option>
+                                            <option value="32">2032</option>
+                                            <option value="33">2033</option>
+                                            <option value="34">2034</option>
+                                            <option value="35">2035</option>
+                                            <option value="36">2036</option>
+                                            <option value="37">2037</option>
+                                            <option value="38">2038</option>
+                                            <option value="39">2039</option>
+                                            <option value="40">2040</option>
+                                            <option value="41">2041</option>
+                                            <option value="42">2042</option>
+                                            <option value="43">2043</option>
+                                            <option value="44">2044</option>
+                                            <option value="45">2045</option>
+                                            <option value="46">2046</option>
+                                            <option value="47">2047</option>
+                                            <option value="48">2048</option>
+                                            <option value="49">2049</option>
+                                            <option value="50">2050</option>
+                                            <option value="51">2051</option>
+                                            <option value="52">2052</option>
+                                            <option value="53">2053</option>
+                                            <option value="54">2054</option>
+                                            <option value="55">2055</option>
+                                            <option value="56">2056</option>
+                                            <option value="57">2057</option>
+                                            <option value="58">2058</option>
+                                            <option value="59">2059</option>
+                                            <option value="60">2060</option>
+                                            <option value="61">2061</option>
+                                            <option value="62">2062</option>
+                                            <option value="63">2063</option>
+                                            <option value="64">2064</option>
+                                            <option value="65">2065</option>
+                                            <option value="66">2066</option>
+                                            <option value="67">2067</option>
+                                            <option value="68">2068</option>
+                                            <option value="69">2069</option>
+                                            <option value="70">2070</option>
+                                            <option value="71">2071</option>
+                                            <option value="72">2072</option>
+                                            <option value="73">2073</option>
+                                            <option value="74">2074</option>
+                                            <option value="75">2075</option>
+                                            <option value="76">2076</option>
+                                            <option value="77">2077</option>
+                                            <option value="78">2078</option>
+                                            <option value="79">2079</option>
+                                            <option value="80">2080</option>
+                                            <option value="81">2081</option>
+                                            <option value="82">2082</option>
+                                            <option value="83">2083</option>
+                                            <option value="84">2084</option>
+                                            <option value="85">2085</option>
+                                            <option value="86">2086</option>
+                                            <option value="87">2087</option>
+                                            <option value="88">2088</option>
+                                            <option value="89">2089</option>
+                                            <option value="90">2090</option>
+                                            <option value="91">2091</option>
+                                            <option value="92">2092</option>
+                                            <option value="93">2093</option>
+                                            <option value="94">2094</option>
+                                            <option value="95">2095</option>
+                                            <option value="96">2096</option>
+                                            <option value="97">2097</option>
+                                            <option value="98">2098</option>
+                                            <option value="99">2099</option>
+                                        </select><br>
+                                        <input type="submit" value="Submit">
+                                    </form>
+                        </div>
+                        <!-- <div class="col-sm-6 d-flex align-items-end flex-column checkoutbtn"><button
+                                        class="btn btn-primary btn-lg">Checkout</button></div> -->
+                </div>
+
+
+
+        </div>
+        </div>
+
+
+
+
+        <div id="ProductList">
+                <img src="https://via.placeholder.com/150" height="150px" width="150px" class="card-img-top" alt="...">
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>
