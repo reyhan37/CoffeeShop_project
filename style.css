@@ -66,7 +66,7 @@ header {
 .changeDue {
 
     padding-top: 10px;
-    display: none;
+
 
 }
 
@@ -74,3 +74,54 @@ header {
     padding: 10px;
 }
 
+.checkoutpadding {
+    padding-top: 15px;
+}
+
+.ccPayment{
+    padding: 15px;
+    margin: 5px;
+    
+}
+.cashPayment{
+
+    padding: 10px;
+
+}
+
+.receipt {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    max-width: 768px;
+    justify-content: center;
+    display: flex;
+}
+.checkoutbtn {
+    padding-top: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+    .headericon {
+
+        margin-top: 10px;
+        justify-content: end; 
+    }
+    .logo {
+
+        justify-content: start;
+    }
+    .menubar {
+        min-height: 55px;
+        background-color: #fff;
+        border-bottom: 1px;
+        border-bottom-color: slategrey;
+        border-bottom-style: solid;
+    
+    }
+    .navbar {
+        min-height: 55px;
+    }
+    .cartItems {
+        padding-top: 60px;
+    }
+  }
