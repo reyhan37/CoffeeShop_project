@@ -1,0 +1,127 @@
+header {
+    display: block;
+    min-height: 100px;
+}
+
+.card {
+    margin: 10px;
+    width: 10rem;
+
+}
+
+.cartItems{
+    padding-top: 60px;
+}
+.navbar {
+    min-height: 55px;
+}
+
+.menubar {
+    min-height: 55px;
+    background-color: #fff;
+    border-bottom: 1px;
+    border-bottom-color: slategrey;
+    border-bottom-style: solid;
+
+}
+
+.cartcolumn {
+    padding-top: 20px;
+}
+.fa-minus-square {
+    color: red;
+}
+.headericon {
+
+    margin-top: 10px;
+}
+.checkout {
+    padding-top: 10px;
+}
+.checkoutbtn {
+    padding-top: 15px;
+    padding-right: 0px;
+}
+
+.CashCheckOut {
+    padding-top: 10px;
+    display: contents;
+
+}
+.CreditCheckOut {
+    padding-top: 10px;
+    display: contents;
+
+}
+.CashCheckOutNone {
+    padding-top: 10px;
+    display: none;
+
+}
+.CreditCheckOutNone {
+    padding-top: 10px;
+    display: none;
+
+}
+.changeDue {
+
+    padding-top: 10px;
+
+
+}
+
+#CheckOutOptions {
+    padding: 10px;
+}
+
+.checkoutpadding {
+    padding-top: 15px;
+}
+
+.ccPayment{
+    padding: 15px;
+    margin: 5px;
+    
+}
+.cashPayment{
+
+    padding: 10px;
+
+}
+
+.receipt {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    max-width: 768px;
+    justify-content: center;
+    display: flex;
+}
+.checkoutbtn {
+    padding-top: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+    .headericon {
+
+        margin-top: 10px;
+        justify-content: end; 
+    }
+    .logo {
+
+        justify-content: start;
+    }
+    .menubar {
+        min-height: 55px;
+        background-color: #fff;
+        border-bottom: 1px;
+        border-bottom-color: slategrey;
+        border-bottom-style: solid;
+    
+    }
+    .navbar {
+        min-height: 55px;
+    }
+    .cartItems {
+        padding-top: 60px;
+    }
+  }
