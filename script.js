@@ -30,21 +30,23 @@ let t = 0;
 let subtotal = [];
 let subT = 0;
 let tax = 0;
+let total = 0;
+let totalsObj = [];
 
 
 
 // =================Products ==================//
 
-addProduct("Iced Coffee", 3, "drinks", "This is an iced coffee", 'https://via.placeholder.com/150');
-addProduct("Hot Coffee", 3, "drinks", "This is a hot black coffee", 'https://via.placeholder.com/150');
-addProduct("Vanilla Latte", 5, "drinks", "This is a hot vanilla latte", 'https://via.placeholder.com/150');
-addProduct("Carmel Latte", 5, "drinks", "This is a hot carmel latte", 'https://via.placeholder.com/150');
-addProduct("Cold Brew", 4, "drinks", "This is a cold brew coffee", 'https://via.placeholder.com/150');
-addProduct("Blueberry Muffin", 3, "snacks", "This is a blueberry muffin", 'https://via.placeholder.com/150');
-addProduct("Poppy Muffin", 3, "snacks", "poppyseed muffin", 'https://via.placeholder.com/150');
-addProduct("Espresso shot", 3, "espresso", "This is an espresso shot", 'https://via.placeholder.com/150');
-addProduct("Chai Tea Latte", 4, "drinks", "This is a hot chai tea latte", 'https://via.placeholder.com/150');
-addProduct("Iced Tea", 3, "drinks", "This is a cold iced tea", 'https://via.placeholder.com/150');
+addProduct("Iced Coffee", 3, "drinks", "This is an iced coffee",'images/IcedCoffee.png');
+addProduct("Hot Coffee", 3, "drinks", "This is a hot black coffee",'images/HotCoffee.png');
+addProduct("Vanilla Latte", 5, "drinks", "This is a hot vanilla latte",'images/VanillaLatte.png');
+addProduct("Carmel Latte", 5, "drinks", "This is a hot carmel latte",'images/CarmelLatte.png');
+addProduct("Cold Brew", 4, "drinks", "This is a cold brew coffee",'images/ColdBrew.png');
+addProduct("Blueberry Muffin", 3, "snacks", "This is a blueberry muffin",'images/BlueberryMuffin.png');
+addProduct("Poppy Muffin", 3, "snacks", "poppyseed muffin",'images/PoppyseedMuffin.png');
+addProduct("Espresso shot", 3, "espresso", "This is an espresso shot",'images/EspressoShot.png');
+addProduct("Chai Tea Latte", 4, "drinks", "This is a hot chai tea latte",'images/ChaiTea.png');
+addProduct("Iced Tea", 3, "drinks", "This is a cold iced tea",'images/IcedTea.png');
 // addProduct("Green Tea", 4, "cold drinks", "This is a cold green tea",'https://via.placeholder.com/150');
 // addProduct("Crossiant", 3, "snacks", "This is a crossiant",'https://via.placeholder.com/150');
 
@@ -107,25 +109,35 @@ function addToCart(name, description, price) {
     cartList.push(new Cart(name, description, Number(price)));
     createCartItem(t);
     cartMath();
-    console.log(cartList);
+    // console.log(cartList);
 
 
 }
 
-function removeCartItem(t) {
+function removeCartItem(t){
     cartList.splice(t, 1);
-    subtotal.splice(t, 1);
     document.getElementById(`itemid${t}`).remove();
-    cartMath();
-    // document.getElementsByTagName("itemid")[t].remove()
-    // itemRow[t].remove();
+    if (cartList.length === 0){
+        subT = 0;
+        tax = 0;
+        total = 0;
 
-    // document.getElementById('CartItems').innerHTML += cartItem;
+        document.getElementById("subtotal").innerHTML = "$ " + subT;
+        document.getElementById("tax").innerHTML = "$ " + tax;
+        document.getElementById("total").innerHTML = "$ " + total;
+
+    } else {
+    
+    
+    cartMath();
+    
+}
 
 }
 
 function itemsInCart(t) {
 
+    t = 0;
     for (t; t <= cartList.length; t++) {
 
         createCartItem(t);
@@ -137,24 +149,25 @@ function itemsInCart(t) {
 // ================ Cart Math===================//
 
 
-function cartMath() {
+function cartMath(){
     s = 0;
     subT = 0;
     tax = 0;
     let total = 0;
-    total = tax + subT;
 
-    for (s; s <= cartList.length; s++) {
+
+
+    for (s; s <= cartList.length; s++){
 
         subT = subT + cartList[s].price;
         tax = subT * 0.06;
         total = tax + subT;
-
-
-        showTotals(tax, subT, total);
+        
+        showTotals(tax.toFixed(2), subT.toFixed(2), total.toFixed(2));
+        
 
     }
-
+    
 }
 
 
@@ -162,11 +175,13 @@ function cartMath() {
 
 function showTotals(tax, subT, total) {
 
-
+    totalsObj = [tax, subT, total];
 
     document.getElementById("subtotal").innerHTML = "$ " + subT;
     document.getElementById("tax").innerHTML = "$ " + tax;
     document.getElementById("total").innerHTML = "$ " + total;
+
+    return totalsObj;
 
 }
 
@@ -178,17 +193,73 @@ document.getElementById("CheckOutOptions").addEventListener("change", paymentMet
 function paymentMethod() {
     let paymentOption = document.getElementById("CheckOutOptions").value;
 
-    if (paymentOption === "Cash") {
-        document.getElementById("CashCheckOut").className = "CashCheckOut";
+    if (paymentOption === "----") {
+        document.getElementById("CashCheckOut").className = "CashCheckOutNone";
         document.getElementById("CreditCheckOut").className = "CreditCheckOutNone";
+
     } else if (paymentOption === "Credit Card") {
         document.getElementById("CashCheckOut").className = "CashCheckOutNone";
         document.getElementById("CreditCheckOut").className = "CreditCheckOut";
-    } else if (paymentOption === "----") {
-        document.getElementById("CashCheckOut").className = "CashCheckOutNone";
+    } else if (paymentOption === "Cash") {
+        document.getElementById("CashCheckOut").className = "CashCheckOut";
         document.getElementById("CreditCheckOut").className = "CreditCheckOutNone";
     }
 }
-paymentMethod();
-console.log();
 
+paymentMethod();
+// console.log();
+
+function amountDue(totalsObj){
+    let amountEntered = document.getElementById("amountPaid");
+    let amountPaid = Number(amountEntered.value);
+    let amountDue = Number(totalsObj[2]);
+    // let total = cartMath();
+    if (amountPaid >= amountDue) {
+        let changeDue = amountPaid - amountDue;
+        document.getElementById("changeDue").innerHTML = "$ " + changeDue.toFixed(2);
+        // console.log("Change Amount: " + changeDue);
+
+    }
+
+    // console.log("something");
+}
+
+// function createReceipt(totalsObj, cartList){  
+
+//     let receiptItem =
+//     `   <tr id="itemid${t}">
+//         <th scope="row"><a href="#" onclick="removeCartItem(${t})"</th>
+//         <td>${cartList[t].name}</td>
+//         <td>${cartList[t].description}</td>
+//         <td style="color: green">$${cartList[t].price}</td>
+//     </tr>`;
+// document.getElementById('receiptArea').innerHTML += receiptItem;
+
+
+// }
+
+// function receiptDate(){
+
+//     let receiptDate = getDate();
+
+//     return receiptDate;
+// }
+
+function createReceipt() {
+    
+    event.preventDefault();
+    let receptHtml =
+	'<hr/>Thank you for your payment!<br/>' + 
+	'Amount Due: ' + totalsObj[2] + '<br/>' +
+	'Payment Method: ' + document.getElementById("CheckOutOptions").value + '<br/>' +
+	'Amount Paid: ' + document.getElementById("amountPaid").value + '<br/>';
+    
+    if (document.getElementById("CheckOutOptions").value === 'Cash') {
+	receptHtml  += 'Change Provided: ' + (document.getElementById("amountPaid").value - totalsObj[2])  + '<br/>';
+    }
+
+
+    document.getElementById('receiptOutput').innerHTML = receptHtml;
+
+
+}
