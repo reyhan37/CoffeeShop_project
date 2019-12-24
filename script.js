@@ -37,16 +37,16 @@ let totalsObj = [];
 
 // =================Products ==================//
 
-addProduct("Iced Coffee", 3, "drinks", "This is an iced coffee",'images/IcedCoffee.png');
-addProduct("Hot Coffee", 3, "drinks", "This is a hot black coffee",'images/HotCoffee.png');
-addProduct("Vanilla Latte", 5, "drinks", "This is a hot vanilla latte",'images/VanillaLatte.png');
-addProduct("Carmel Latte", 5, "drinks", "This is a hot carmel latte",'images/CarmelLatte.png');
-addProduct("Cold Brew", 4, "drinks", "This is a cold brew coffee",'images/ColdBrew.png');
-addProduct("Blueberry Muffin", 3, "snacks", "This is a blueberry muffin",'images/BlueberryMuffin.png');
-addProduct("Poppy Muffin", 3, "snacks", "poppyseed muffin",'images/PoppyseedMuffin.png');
-addProduct("Espresso shot", 3, "espresso", "This is an espresso shot",'images/EspressoShot.png');
-addProduct("Chai Tea Latte", 4, "drinks", "This is a hot chai tea latte",'images/ChaiTea.png');
-addProduct("Iced Tea", 3, "drinks", "This is a cold iced tea",'images/IcedTea.png');
+addProduct("Iced Coffee", 3, "drinks", "This is an iced coffee", 'images/IcedCoffee.png');
+addProduct("Hot Coffee", 3, "drinks", "This is a hot black coffee", 'images/HotCoffee.png');
+addProduct("Vanilla Latte", 5, "drinks", "This is a hot vanilla latte", 'images/VanillaLatte.png');
+addProduct("Carmel Latte", 5, "drinks", "This is a hot carmel latte", 'images/CarmelLatte.png');
+addProduct("Cold Brew", 4, "drinks", "This is a cold brew coffee", 'images/ColdBrew.png');
+addProduct("Blueberry Muffin", 3, "snacks", "This is a blueberry muffin", 'images/BlueberryMuffin.png');
+addProduct("Poppy Muffin", 3, "snacks", "poppyseed muffin", 'images/PoppyseedMuffin.png');
+addProduct("Espresso shot", 3, "espresso", "This is an espresso shot", 'images/EspressoShot.png');
+addProduct("Chai Tea Latte", 4, "drinks", "This is a hot chai tea latte", 'images/ChaiTea.png');
+addProduct("Iced Tea", 3, "drinks", "This is a cold iced tea", 'images/IcedTea.png');
 // addProduct("Green Tea", 4, "cold drinks", "This is a cold green tea",'https://via.placeholder.com/150');
 // addProduct("Crossiant", 3, "snacks", "This is a crossiant",'https://via.placeholder.com/150');
 
@@ -114,10 +114,10 @@ function addToCart(name, description, price) {
 
 }
 
-function removeCartItem(t){
+function removeCartItem(t) {
     cartList.splice(t, 1);
     document.getElementById(`itemid${t}`).remove();
-    if (cartList.length === 0){
+    if (cartList.length === 0) {
         subT = 0;
         tax = 0;
         total = 0;
@@ -127,11 +127,11 @@ function removeCartItem(t){
         document.getElementById("total").innerHTML = "$ " + total;
 
     } else {
-    
-    
-    cartMath();
-    
-}
+
+
+        cartMath();
+
+    }
 
 }
 
@@ -149,7 +149,7 @@ function itemsInCart(t) {
 // ================ Cart Math===================//
 
 
-function cartMath(){
+function cartMath() {
     s = 0;
     subT = 0;
     tax = 0;
@@ -157,17 +157,17 @@ function cartMath(){
 
 
 
-    for (s; s <= cartList.length; s++){
+    for (s; s <= cartList.length; s++) {
 
         subT = subT + cartList[s].price;
         tax = subT * 0.06;
         total = tax + subT;
-        
+
         showTotals(tax.toFixed(2), subT.toFixed(2), total.toFixed(2));
-        
+
 
     }
-    
+
 }
 
 
@@ -209,7 +209,7 @@ function paymentMethod() {
 paymentMethod();
 // console.log();
 
-function amountDue(totalsObj){
+function amountDue(totalsObj) {
     let amountEntered = document.getElementById("amountPaid");
     let amountPaid = Number(amountEntered.value);
     let amountDue = Number(totalsObj[2]);
@@ -246,20 +246,32 @@ function amountDue(totalsObj){
 // }
 
 function createReceipt() {
-    
+
     event.preventDefault();
     let receptHtml =
-	'<hr/>Thank you for your payment!<br/>' + 
-	'Amount Due: ' + totalsObj[2] + '<br/>' +
-	'Payment Method: ' + document.getElementById("CheckOutOptions").value + '<br/>' +
-	'Amount Paid: ' + document.getElementById("amountPaid").value + '<br/>';
-    
-    if (document.getElementById("CheckOutOptions").value === 'Cash') {
-	receptHtml  += 'Change Provided: ' + (document.getElementById("amountPaid").value - totalsObj[2])  + '<br/>';
-    }
+        '<hr/>Thank you for your payment!<br/>' +
+        'Amount Due: $' + totalsObj[2] + '<br/>' +
+        'Payment Method: ' + document.getElementById("CheckOutOptions").value + '<br/>' +
+        'Amount Paid: $' + document.getElementById("amountPaid").value + '<br/>';
 
+
+    if (document.getElementById("CheckOutOptions").value === 'Cash') {
+        receptHtml += 'Change Provided: ' + (document.getElementById("amountPaid").value - totalsObj[2]) + '<br/>';
+    }
+    receptHtml += 'Item(s) Purchased: <br/>';
 
     document.getElementById('receiptOutput').innerHTML = receptHtml;
+    receiptItems();
 
+}
+
+function receiptItems() {
+    let receiptItem = document.getElementById('receiptOutput');
+    cartList.forEach(element => {
+        let receiptList = document.createElement("li");
+        var textNode = document.createTextNode(element.name);
+        receiptList.appendChild(textNode);
+        receiptItem.appendChild(receiptList);
+    })
 
 }
