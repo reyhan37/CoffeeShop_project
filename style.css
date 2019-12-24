@@ -9,9 +9,10 @@ header {
 
 }
 
-.cartItems{
+.cartItems {
     padding-top: 60px;
 }
+
 .navbar {
     min-height: 55px;
 }
@@ -28,16 +29,20 @@ header {
 .cartcolumn {
     padding-top: 20px;
 }
+
 .fa-minus-square {
     color: red;
 }
+
 .headericon {
 
     margin-top: 10px;
 }
+
 .checkout {
     padding-top: 10px;
 }
+
 .checkoutbtn {
     padding-top: 15px;
     padding-right: 0px;
@@ -48,21 +53,25 @@ header {
     display: contents;
 
 }
+
 .CreditCheckOut {
     padding-top: 10px;
     display: contents;
 
 }
+
 .CashCheckOutNone {
     padding-top: 10px;
     display: none;
 
 }
+
 .CreditCheckOutNone {
     padding-top: 10px;
     display: none;
 
 }
+
 .changeDue {
 
     padding-top: 10px;
@@ -78,12 +87,13 @@ header {
     padding-top: 15px;
 }
 
-.ccPayment{
+.ccPayment {
     padding: 15px;
     margin: 5px;
-    
+
 }
-.cashPayment{
+
+.cashPayment {
 
     padding: 10px;
 
@@ -96,6 +106,7 @@ header {
     justify-content: center;
     display: flex;
 }
+
 .checkoutbtn {
     padding-top: 15px;
 }
@@ -104,28 +115,40 @@ header {
     display: ;
 }
 
-@media only screen and (min-width: 768px) {
-    .headericon {
+.btn-group-sm>.btn,
+.btn-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    text-align: center;
 
-        margin-top: 10px;
-        justify-content: end; 
-    }
-    .logo {
+    @media only screen and (min-width: 768px) {
+        .headericon {
 
-        justify-content: start;
+            margin-top: 10px;
+            justify-content: end;
+        }
+
+        .logo {
+
+            justify-content: start;
+        }
+
+        .menubar {
+            min-height: 55px;
+            background-color: #fff;
+            border-bottom: 1px;
+            border-bottom-color: slategrey;
+            border-bottom-style: solid;
+
+        }
+
+        .navbar {
+            min-height: 55px;
+        }
+
+        .cartItems {
+            padding-top: 60px;
+        }
     }
-    .menubar {
-        min-height: 55px;
-        background-color: #fff;
-        border-bottom: 1px;
-        border-bottom-color: slategrey;
-        border-bottom-style: solid;
-    
-    }
-    .navbar {
-        min-height: 55px;
-    }
-    .cartItems {
-        padding-top: 60px;
-    }
-  }
